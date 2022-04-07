@@ -136,8 +136,8 @@ const Product = class Product {
      * This method can also be written in one line; if doing so, consider using String interpolation when calling the product constructor
      * Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array 
      */
-    static halfOff = (products) => {
-        const halfProducts = [];
+    static halfOff = (products) => {return products.map(product => new Product(`${product.name},${product.price*0.5},${product.availability}`))}
+        /*const halfProducts = [];
         for(let i=0; i<products.length; i++){
             const a = new Product(`${products[i].name},${products[i].price*0.5},${products[i].availability}`)
             //const a = new Product(`${products[i].name},${products[i].price},${products[i].availability}`)
@@ -145,8 +145,9 @@ const Product = class Product {
             
         }
         //console.log(products);
-        return halfProducts;
-    }
+        return halfProducts;*/
+        
+    
 
     /**
      * *****************
@@ -162,12 +163,20 @@ const Product = class Product {
      * Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat (currency formatting)
      */
      static printProducts = (products) => {
-         for (let i=0;i<products.length;i++){
-            console.log("Product: " + products[i].name);
+        var formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        });  
+        products.forEach(product => {
+                if (product.availability == "In Stock"){
+                    product.availability = "Yes";
+                }
+                else{
+                    product.availability = "No";
+                }
+                console.log(`Product: ${product.name}, Cost: ${formatter.format(product.price)}, Availability: ${product.availability}`)
+            })
          }
-         
-     }
-
  };
 
 // ----------------------------------
