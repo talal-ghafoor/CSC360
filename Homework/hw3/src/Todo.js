@@ -4,6 +4,9 @@ export default function Todo({ title, desc, dateCreated,dateCompleted,complete, 
   function handleChecked(evt) {
       dispatch({type:'TOGGLE_TODO', title, desc, dateCreated, dateCompleted: Date(Date.now()), complete: evt.target.checked, index});
   }
+  function handleDelete(){
+    dispatch({type: 'DELETE_TODO', index})
+  }
 
 
   return (
@@ -15,6 +18,7 @@ export default function Todo({ title, desc, dateCreated,dateCompleted,complete, 
           <div>Complete: {complete}</div>
           <div>Date Created: {dateCreated}</div>
           <div>Date Completed: {dateCompleted}</div>
+          <input type="button" value="delete" onClick={handleDelete}></input>
           <div></div>
       </div>
   )

@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "portal",
+      "desc": "Some content"
+    },
+    {
+      "id": "4",
+      "title": "My First Post",
+      "desc": "Post content"
+    },
+    {
+      "title": "Test Post",
+      "desc": "",
+      "dateCreated": "Mon May 30 2022 17:14:04 GMT-0500 (CDT)",
+      "complete": false,
+      "dateCompleted": null,
+      "id": "2gi_aZk"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "paul",
+      "password": "badpassword"
+    }
+  ]
+}
