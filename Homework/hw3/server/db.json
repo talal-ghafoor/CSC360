@@ -24,6 +24,11 @@
       "id": 1,
       "username": "paul",
       "password": "badpassword"
+    },
+    {
+      "username": "Talal",
+      "password": "Yessir",
+      "id": 2
     }
   ]
 }
