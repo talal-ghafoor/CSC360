@@ -5,6 +5,7 @@ import Header from "./Header";
 import UserBar from "./UserBar";
 import CreatePost from "./CreatePost";
 import appReducer from "./reducers";
+import StateContext from "./Context";
 
 
 function App() {
@@ -46,15 +47,31 @@ function App() {
   )
   return (
     <div>
-      <Header text="My Blog" />
+      <ThemeContext.Provider value = {{primary: 'red'}}>
+        <Header text="My Blog" />
+      </ThemeContext.Provider>
       <UserBar user={state.user} dispatch={dispatch}/>
       {state.user && <CreatePost dispatch={dispatch} />}
       {state.user && <TodoList todos={state.todos} dispatch={dispatch} />}
     </div>
+
+    // <div>
+
+    // <StateContext.Provider value={{state, dispatch}}>
+    //   <UserBar></UserBar>
+    //   <CreatePost></CreatePost>
+    //   <TodoList></TodoList>
+
+    // </StateContext.Provider>
+
+
+    // </div>
+
+    
     
   )
 
 }
-export const ThemeContext = createContext({primary:'red'});
+export const ThemeContext = createContext({primary:'blue'});
   
 export default App;
